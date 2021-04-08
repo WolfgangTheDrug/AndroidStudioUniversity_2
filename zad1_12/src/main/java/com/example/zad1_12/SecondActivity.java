@@ -14,6 +14,7 @@ public class SecondActivity extends AppCompatActivity {
     public static final String TRZECIA = "w obiekcie klasy Intent";
     private TextView tv;
     private Button bEnd;
+    private double product;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +27,10 @@ public class SecondActivity extends AppCompatActivity {
         int i = intent.getIntExtra(TRZECIA, 0);
 
         tv = (TextView) findViewById(R.id.message);
-        bEnd = (Button) findViewById(R.id.endButton);
+        bEnd = (Button) findViewById(R.id.endButton); //guziczek wróć
 
         if (!(s == null || s.isEmpty() || d == 0 || i == 0)) { // jeśli odebraliśmy wszystkie dane
+            product = d*i;
             String wynik = String.format("Za towar o nazwie %s trzeba zapłacić %s.", s, d * i);
             tv.setText(wynik);
         } else {
@@ -38,15 +40,18 @@ public class SecondActivity extends AppCompatActivity {
         bEnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                zakoncz();
+                finish();
             }
 
         });
     }
 
-
-    private void zakoncz() {
-        super.finish(); // ten finisz nie konczy aplikacji tylko aktywnosc
-
+    @Override
+    public void finish() {
+        Intent intent = new Intent();
+        intent.putExtra(MainActivity.KEY, product);
+        setResult(RESULT_OK, intent);
+        super.finish();
     }
+
 }

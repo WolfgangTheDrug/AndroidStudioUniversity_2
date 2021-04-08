@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">zad1_12</string>
     <string name="nazwa_towaru">Nazwa towaru:</string>
+    <string name="wroc">Wróć</string>
 </resources>
