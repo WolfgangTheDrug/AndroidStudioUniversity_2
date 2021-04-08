@@ -1,0 +1,4 @@
+include ':zad1_11'
+include ':zad1_12'
+include ':app'
+rootProject.name = "PD4"
