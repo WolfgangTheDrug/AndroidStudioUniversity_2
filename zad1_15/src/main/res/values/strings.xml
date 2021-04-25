@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Fiszki</string>
+    <string name="app_name">Zadanie15c</string>
+    <string name="eng">eng</string>
+    <string name="sprawdz">Sprawdź</string>
+    <string name="pol">TextView</string>
+    <string name="hint">Słówko po angielsku</string>
 </resources>

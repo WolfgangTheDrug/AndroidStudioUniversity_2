@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <array name="slowka">
-        <item>samochód:car</item>
-        <item>drzewko:tree</item>
-        <item>słoneczko:sun</item>
-        <item>kotek:kitty</item>
-        <item>piesek:doggy</item>
+    <array name="dictionary">
+        <item>Ja:I</item>
+        <item>kocham:love</item>
+        <item>programowanie:programming</item>
+        <item>w:in</item>
+        <item>java:java</item>
     </array>
 </resources>
