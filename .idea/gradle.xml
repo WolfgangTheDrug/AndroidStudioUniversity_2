@@ -11,8 +11,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/zad1_10" />
             <option value="$PROJECT_DIR$/zad1_11" />
             <option value="$PROJECT_DIR$/zad1_12" />
+            <option value="$PROJECT_DIR$/zad1_13" />
+            <option value="$PROJECT_DIR$/zad1_14" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

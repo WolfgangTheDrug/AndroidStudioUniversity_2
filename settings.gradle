@@ -1,3 +1,6 @@
+include ':zad1_14'
+include ':zad1_13'
+include ':zad1_10'
 include ':zad1_11'
 include ':zad1_12'
 rootProject.name = "PD4"
