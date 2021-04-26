@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import android.annotation.SuppressLint;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private static ViewPagerFragment[] tabFragm;
-    private Button check;
+    private Button total;
 
     public String getRandomColor() {
         int number = 0;
@@ -35,14 +37,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        check = findViewById(R.id.buttonCheck);
+        total = findViewById(R.id.totalButton);
 
-        TypedArray slowka = getResources().obtainTypedArray(R.array.dictionary);
-        tabFragm = new ViewPagerFragment[slowka.length()];
+        @SuppressLint("Recycle") TypedArray slowka = getResources().obtainTypedArray(R.array.dictionary); // tak mi kazał edytor :x
+        int howMany = slowka.length();
+        tabFragm = new ViewPagerFragment[howMany];
         for (int i = 0; i < tabFragm.length; i++){
 
             String[] separated = slowka.getString(i).split(":");
-            
             String polishWord = separated[0];
             String englishWord = separated[1];
 
@@ -51,14 +53,13 @@ public class MainActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         viewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 
-        check.setOnClickListener(new View.OnClickListener() {
+        total.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(getApplicationContext(), String.format("%s na %s", ViewPagerFragment.correctCounter, ViewPagerFragment.howMany), Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), String.format("%s na %s", ViewPagerFragment.correctCounter, howMany), Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
-
     }
 
     private class MyPagerAdapter extends FragmentStatePagerAdapter {
