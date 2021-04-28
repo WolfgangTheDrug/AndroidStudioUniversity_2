@@ -17,10 +17,8 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private ListView listView;
-    private String[] strsMenu = new String[]{"Oferta", "Koszyk", "Wiadomości"};
+    private String[] strsMenu = new String[]{"Załoga", "Koszyk", "Wiadomości"};
     private Fragment[] tabFr;
-    private String colors[] = {"#FFFFFF", "#111111", "#123456"}; //do poprawy, dodać losowe generowanie kolorów!
-    //losowanie liczby 16-tkowej, konwersja na stringa
 
     public String getRandomColor() {
         int number = 0;
@@ -54,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.simple_list, strsMenu);
 
-        MyFragment offer = new MyFragment(getRandomColor(), "Oto nasza oferta!");
+        MyFragment offer = new MyFragment(getRandomColor(), "Oto nasza drużyna!");
         MyFragment2 cart = new MyFragment2(getRandomColor(), "Nic nie znajduje się w koszyku");
         MyFragment3 messages = new MyFragment3(getRandomColor(), "Brak wiadomości do wyświetlenia");
 

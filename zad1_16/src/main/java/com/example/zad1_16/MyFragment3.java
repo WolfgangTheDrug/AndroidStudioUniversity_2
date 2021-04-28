@@ -39,11 +39,11 @@ public class MyFragment3 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_content, container, false);
-        tv = view.findViewById(R.id.text_fragment);
-        tv.setBackgroundColor(Color.parseColor(color));
-        tv.setTextColor(Color.parseColor(invertHexColor(color)));
-        tv.setText(text);
+        View view = inflater.inflate(R.layout.fragment3_content, container, false);
+//        tv = view.findViewById(R.id.text_fragment);
+//        tv.setBackgroundColor(Color.parseColor(color));
+//        tv.setTextColor(Color.parseColor(invertHexColor(color)));
+//        tv.setText(text);
         return view;
     }
 

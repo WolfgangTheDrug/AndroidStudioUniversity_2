@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Testowanie Drawera</string>
     <string name="destroy_the_world">Destroy the World</string>
+    <string name="zaloga">Zaloga!</string>
 </resources>

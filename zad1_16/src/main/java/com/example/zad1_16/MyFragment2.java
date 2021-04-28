@@ -5,8 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,18 +21,12 @@ public class MyFragment2 extends Fragment {
     private String color;
     private String text;
 
+    private Button pay;
+    private Button back;
+    private Button delete;
     public static final String COLOR = "color";
     public static final String TEXT = "text";
 
-    private String invertHexColor(String hexColor) {
-        char[] hexChar = hexColor.substring(1).toCharArray(); // array sześciu cyfr heksadecymalnych
-        for (int i = 0; i < 3; i++) {
-            int value = Integer.parseInt(String.valueOf(hexChar[2*i]), 16); // wyciąnij co drugą cyfrę
-            value = 0xF - value; // odwróć tę cyfrę względem bazy?
-            hexChar[2*i] = (Integer.toHexString(value)).charAt(0); // zamień starą cyfrę na nową
-        } // nadal mam sześć cyfr
-        return  "#" + new String(hexChar);
-    }
 
     MyFragment2(String color, String text){
         this.color = color;
@@ -39,11 +37,49 @@ public class MyFragment2 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_content, container, false);
-        tv = view.findViewById(R.id.text_fragment);
-        tv.setBackgroundColor(Color.parseColor(color));
-        tv.setTextColor(Color.parseColor(invertHexColor(color)));
-        tv.setText(text);
+        View view = inflater.inflate(R.layout.fragment2_content, container, false);
+        String[] items = {"item1", "item2", "item3", "item4", "item5", "item6"};
+
+        ListView listView = (ListView) view.findViewById(R.id.listView1);
+
+        ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
+                getActivity(),
+                R.layout.list_element,
+                items
+        );
+
+        listView.setAdapter(listViewAdapter);
+
+        pay = (Button) view.findViewById(R.id.button);
+        back = (Button) view.findViewById(R.id.button2);
+        delete = (Button) view.findViewById(R.id.button3);
+
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast toast = Toast.makeText(getContext(), "Przekierowanie do kasy...", Toast.LENGTH_SHORT);
+                toast.show();
+
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast toast = Toast.makeText(getContext(), "Wracanie...", Toast.LENGTH_SHORT);
+                toast.show();
+
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast toast = Toast.makeText(getContext(), "Usunięto przedmioty z koszyka.", Toast.LENGTH_SHORT);
+                toast.show();
+
+            }
+        });
         return view;
     }
 
@@ -61,6 +97,8 @@ public class MyFragment2 extends Fragment {
             color = savedInstanceState.getString(COLOR);
             text = savedInstanceState.getString(TEXT);
         }
+
+
     }
 
 }
