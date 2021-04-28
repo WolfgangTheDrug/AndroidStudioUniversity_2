@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class MyFragment extends Fragment {
+public class MyFragment3 extends Fragment {
     private TextView tv;
     private String color;
     private String text;
@@ -30,7 +30,7 @@ public class MyFragment extends Fragment {
         return  "#" + new String(hexChar);
     }
 
-    MyFragment(String color, String text){
+    MyFragment3(String color, String text){
         this.color = color;
         this.text = text;
     }
